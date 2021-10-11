@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function load_node_by_time_theme($existing, $type, $theme, $path) {
+  return [
+    'block_new_nodes' =>
+      [
+        'variables' => [
+          'nodes' => NULL
+        ],
+      ]
+  ];
+}

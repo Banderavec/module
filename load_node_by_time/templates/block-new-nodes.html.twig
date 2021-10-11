@@ -1,0 +1,23 @@
+{% if nodes %}
+<table>
+  <thead>
+  <tr>
+    <th>{{ 'Id' }}</th>
+    <th>{{ 'Title' }}</th>
+    <th>{{ 'Created Date' }}</th>
+    <th>{{ 'Link' }}</th>
+  </tr>
+  </thead>
+      {% for value in nodes %}
+        <tr>
+          <td>{{ value.id }}</td>
+          <td>{{ value.title }}</td>
+          <td>{{ value.created|date('d-m-Y H:i:s') }}</td>
+          <td><a href="{{ path('entity.node.canonical', {'node': value.id}) }}">{{ 'View node page'|t }}</a></td>
+        </tr>
+      {% endfor %}
+
+</table>
+  {% else %}
+  <p>{{ "We don't have new materials" }}</p>
+{% endif %}
